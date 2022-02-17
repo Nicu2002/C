@@ -159,9 +159,9 @@ void create_resArr(int n, int* N, int m, int* M, int* res_arr, int* res_ptr) {
 
 bool isPrime(int number) {
 	bool result = true;
-	if (number > 1) {
+	if(number > 1) {
 		for (int i = 2; i <= (int)sqrt(number); i++) {
-			if (number % i == 0) {
+			if(number % i == 0) {
 				result = false;
 				break;
 			}
