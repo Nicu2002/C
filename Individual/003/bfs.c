@@ -2,8 +2,8 @@
 #include <stdlib.h>
 
 #define graph_repr "graph_repr.dat"
-#define nodes_num 13
-#define edges_num 19
+#define nodes_num 11
+#define edges_num 16
 
 void read_edges(int (*edges)[2]);
 void create_adjacency_matrix(int (*edges)[2], int (*adjacency_matrix)[nodes_num]);
@@ -74,22 +74,22 @@ void create_adjacency_matrix(int (*edges)[2], int (*adjacency_matrix)[nodes_num]
 }
 
 void BF(int start, int *node_status, int (*adjacency_matrix)[nodes_num]) {
-    int s, d, i, nod, c[100];
-    s = 0;
-    d = 0;
+    int analised_num, visited_num, i, nod, queue[nodes_num];
+    analised_num = 0;
+    visited_num = 0;
     node_status[start - 1]=1; 
-    c[s]=start;
+    queue[analised_num]=start;
     printf("%d", start);
-    while(s<=d){
-        nod = c[s];
+    while(analised_num <= visited_num){
+        nod = queue[analised_num];
         for(i = 0; i < nodes_num; i++){
-            if( adjacency_matrix[nod - 1][i]==1 && node_status[i]==0 ) { 
-                d++; 
-                c[d]=i + 1;
-                printf(" -> %d", i + 1);
+            if( adjacency_matrix[nod - 1][i]==1 && node_status[i]==0 ) { // caz favorabil
+                visited_num++; 
+                queue[visited_num] = i + 1;
+                printf(" -> %d", i + 1); // print nod vizitat
                 node_status[i] = 1;
             }
         }
-        s++;
+        analised_num++;
     }
-}
+}t

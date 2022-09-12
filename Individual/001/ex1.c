@@ -2,7 +2,7 @@
 
 #define graph_repr "graph_repr.dat"
 #define nodes_num 11
-#define edges_num 19
+#define edges_num 17
 
 void read_edges(int (*edges)[2]);
 void create_adjacency_matrix(int (*edges)[2], int (*adjacency_matrix)[nodes_num]);
